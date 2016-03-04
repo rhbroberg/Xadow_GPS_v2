@@ -107,6 +107,7 @@ typedef struct
 
 
 extern stru_GPSRMC GPS_RMC_Data;
+extern stru_GPSRMC GPS_RMC_Converted;
 extern stru_GPSGGA GPS_GGA_Data;
 extern stru_GPSGSA GPS_GSA_Data;
 extern stru_GPSGSV GPS_GSV_Data;

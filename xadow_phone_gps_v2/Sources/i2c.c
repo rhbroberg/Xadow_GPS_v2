@@ -69,7 +69,7 @@ void i2c_slave_callback(uint8_t instance,i2c_slave_event_t i2cEvent,void *param)
 					case GPS_LATITUDE_ID:
 						TxBuff[0] = GPS_LATITUDE_ID;
 						TxBuff[1] = GPS_LATITUDE_SIZE;
-						i2c_data_copy(TxBuff + 2, GPS_RMC_Data.Latitude, 9);
+						i2c_data_copy(TxBuff + 2, GPS_RMC_Converted.Latitude, 9);
 					break;
 
 					case GPS_NS_ID:
@@ -81,7 +81,7 @@ void i2c_slave_callback(uint8_t instance,i2c_slave_event_t i2cEvent,void *param)
 					case GPS_LONGITUDE_ID:
 						TxBuff[0] = GPS_LONGITUDE_ID;
 						TxBuff[1] = GPS_LONGITUDE_SIZE;
-						i2c_data_copy(TxBuff + 2, GPS_RMC_Data.Longitude, 10);
+						i2c_data_copy(TxBuff + 2, GPS_RMC_Converted.Longitude, 10);
 					break;
 
 					case GPS_EW_ID:
@@ -225,7 +225,7 @@ void i2c_slave_callback(uint8_t instance,i2c_slave_event_t i2cEvent,void *param)
 				case GPS_LATITUDE_ID: // Î³¶È
 					TxBuff[0] = GPS_LATITUDE_ID;
 					TxBuff[1] = GPS_LATITUDE_SIZE;
-					i2c_data_copy(TxBuff + 2, GPS_RMC_Data.Latitude, 9);
+					i2c_data_copy(TxBuff + 2, GPS_RMC_Converted.Latitude, 9);
 				break;
 
 				case GPS_NS_ID:
@@ -237,7 +237,7 @@ void i2c_slave_callback(uint8_t instance,i2c_slave_event_t i2cEvent,void *param)
 				case GPS_LONGITUDE_ID: // ¾­¶È
 					TxBuff[0] = GPS_LONGITUDE_ID;
 					TxBuff[1] = GPS_LONGITUDE_SIZE;
-					i2c_data_copy(TxBuff + 2, GPS_RMC_Data.Longitude, 10);
+					i2c_data_copy(TxBuff + 2, GPS_RMC_Converted.Longitude, 10);
 				break;
 
 				case GPS_EW_ID:

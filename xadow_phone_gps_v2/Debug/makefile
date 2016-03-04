@@ -73,7 +73,7 @@ all: xadow_phone_gps_v2.elf secondary-outputs
 xadow_phone_gps_v2.elf: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: Cross ARM C++ Linker'
-	arm-none-eabi-g++ -mcpu=cortex-m0plus -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "D:/Freescale/workspace/xadow_phone_gps_v2/Project_Settings/Linker_Files/ProcessorExpert.ld" -Xlinker --gc-sections -L"D:/Freescale/workspace/xadow_phone_gps_v2/Project_Settings/Linker_Files" -Wl,-Map,"xadow_phone_gps_v2.map" -specs=nosys.specs -specs=nano.specs -o "xadow_phone_gps_v2.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	arm-none-eabi-g++ -mcpu=cortex-m0plus -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "C:/Users/rhb/git/Xadow_GPS_v2/xadow_phone_gps_v2/Project_Settings/Linker_Files/ProcessorExpert.ld" -Xlinker --gc-sections -L"C:/Users/rhb/git/Xadow_GPS_v2/xadow_phone_gps_v2/Project_Settings/Linker_Files" -Wl,-Map,"xadow_phone_gps_v2.map" -specs=nosys.specs -specs=nano.specs -o "xadow_phone_gps_v2.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 

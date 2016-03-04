@@ -18,6 +18,7 @@ static uint8_t SateInfoIndex=0;           //
 //static uint8_t ucTemp[5];
 
 stru_GPSRMC GPS_RMC_Data;
+stru_GPSRMC GPS_RMC_Converted;
 stru_GPSGGA GPS_GGA_Data;
 stru_GPSGSA GPS_GSA_Data;
 stru_GPSGSV GPS_GSV_Data;
@@ -63,11 +64,14 @@ void gps_data_convert(void)
 
 	Data = Data * 5 / 3; // *100/60
 
-	GPS_RMC_Data.Latitude[2] = '.';
-
+	GPS_RMC_Converted.Latitude[2] = '.';
+	for (i = 0; i < 2; i++)
+	{
+		GPS_RMC_Converted.Latitude[i] = GPS_RMC_Data.Latitude[i];
+	}
 	for(i=8;i>2;i--)
 	{
-		GPS_RMC_Data.Latitude[i] = Data % 10 + '0';
+		GPS_RMC_Converted.Latitude[i] = Data % 10 + '0';
 		Data = Data / 10;
 	}
 
@@ -80,10 +84,14 @@ void gps_data_convert(void)
 
 	Data = Data * 5 / 3; // *100/60
 
-	GPS_RMC_Data.Longitude[3] = '.';
+	GPS_RMC_Converted.Longitude[3] = '.';
+	for (i = 0; i < 3; i++)
+	{
+		GPS_RMC_Converted.Longitude[i] = GPS_RMC_Data.Longitude[i];
+	}
 	for(i=9;i>3;i--)
 	{
-		GPS_RMC_Data.Longitude[i] = Data % 10 + '0';
+		GPS_RMC_Converted.Longitude[i] = Data % 10 + '0';
 		Data = Data / 10;
 	}
 }
